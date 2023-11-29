@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Завдання з JavaScript</title>
+  <!-- Підключення бібліотеки animate.css для анімацій -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    /* Додаткові стилі можна додати тут */
+  </style>
+</head>
+<body>
+
+  <!-- Завдання 1: Селектори -->
+  <p>Оригінальний текст</p>
+  <p>Оригінальний текст</p>
+  <div id="task1">
+    <p>Оригінальний текст</p>
+  </div>
+  <ul>
+    <li>Елемент 1</li>
+    <li>Елемент 2</li>
+    <li>Елемент 3</li>
+  </ul>
+
+  <!-- Завдання 5: Додаткове завдання - Кнопка для видалення елементів списку -->
+  <!-- JavaScript-код додасть обробник подій для цієї кнопки -->
+  <button id="removeListItems">Видалити елементи з класом list-item</button>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Вставте JavaScript-код сюди
+      document.querySelectorAll('p').forEach(function (p) {
+        p.textContent = 'Змінений текст';
+      });
+
+      document.getElementById('task1').classList.add('highlight');
+
+      document.querySelectorAll('li').forEach(function (li) {
+        li.classList.add('list-item');
+      });
+
+      document.querySelectorAll('.highlight').forEach(function (element) {
+        element.style.color = 'red';
+      });
+
+      document.querySelectorAll('.list-item').forEach(function (element) {
+        element.style.backgroundColor = 'lightgrey';
+      });
+
+      document.querySelectorAll('.highlight').forEach(function (element) {
+        element.classList.add('animate__animated', 'animate__fadeIn');
+      });
+
+      document.querySelector('#task1 p:last-child').textContent = 'Новий останній текст';
+
+      document.getElementById('removeListItems').addEventListener('click', function () {
+        document.querySelectorAll('.list-item').forEach(function (element) {
+          element.remove();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
